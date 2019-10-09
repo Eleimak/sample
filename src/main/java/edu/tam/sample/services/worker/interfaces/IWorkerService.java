@@ -1,4 +1,4 @@
-package edu.tam.sample.services.interfaces;
+package edu.tam.sample.services.worker.interfaces;
 
 import edu.tam.sample.model.Worker;
 

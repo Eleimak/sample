@@ -1,29 +1,11 @@
-package edu.tam.sample.model;
+package edu.tam.sample.forms;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.Objects;
-
-@Document
-public class Worker {
-
-    @Id
+public class WorkerForm {
     private String id;
     private String name;
     private String occupation;
     private int salary;
-    private Speciality speciality;
-
-    public Worker() {
-    }
-
-    public Worker(String name, String occupation, int salary, Speciality speciality) {
-        this.name = name;
-        this.occupation = occupation;
-        this.salary = salary;
-        this.speciality = speciality;
-    }
+    private String Speciality;
 
     public String getId() {
         return id;
@@ -57,22 +39,21 @@ public class Worker {
         this.salary = salary;
     }
 
-    public Speciality getSpeciality() {
-        return speciality;
+    public String getSpeciality() {
+        return Speciality;
     }
 
-    public void setSpeciality(Speciality speciality) {
-        this.speciality = speciality;
+    public void setSpeciality(String speciality) {
+        Speciality = speciality;
     }
 
     @Override
     public String toString() {
-        return "Worker{" +
+        return "WorkerForm{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", occupation='" + occupation + '\'' +
                 ", salary=" + salary +
-                ", speciality=" + speciality +
                 '}';
     }
 }
