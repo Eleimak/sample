@@ -3,6 +3,8 @@ package edu.tam.sample.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Document
@@ -14,15 +16,17 @@ public class Worker {
     private String occupation;
     private int salary;
     private Speciality speciality;
+    private LocalDateTime employmentDay;
 
     public Worker() {
     }
 
-    public Worker(String name, String occupation, int salary, Speciality speciality) {
+    public Worker(String name, String occupation, int salary, Speciality speciality, LocalDateTime employmentDay) {
         this.name = name;
         this.occupation = occupation;
         this.salary = salary;
         this.speciality = speciality;
+        this.employmentDay = employmentDay;
     }
 
     public String getId() {
@@ -65,6 +69,14 @@ public class Worker {
         this.speciality = speciality;
     }
 
+    public LocalDateTime getEmploymentDay() {
+        return employmentDay;
+    }
+
+    public void setEmploymentDay(LocalDateTime employmentDay) {
+        this.employmentDay = employmentDay;
+    }
+
     @Override
     public String toString() {
         return "Worker{" +
@@ -73,6 +85,7 @@ public class Worker {
                 ", occupation='" + occupation + '\'' +
                 ", salary=" + salary +
                 ", speciality=" + speciality +
+                ", employmentDay=" + employmentDay +
                 '}';
     }
 }

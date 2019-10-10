@@ -7,10 +7,14 @@ import edu.tam.sample.repository.SpecialityRepository;
 import edu.tam.sample.services.speciality.impls.SpecialityServicesImpl;
 import edu.tam.sample.services.worker.impls.WorkerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -71,7 +75,12 @@ public class WorkerWebController {
             WorkerForm workerForm){
         Worker newWorker = new Worker(workerForm.getName(),
                 workerForm.getOccupation(),workerForm.getSalary(),
-                specialityServices.get(workerForm.getSpeciality()));
+                specialityServices.get(workerForm.getSpeciality()),
+                LocalDateTime.parse(workerForm.getEmploymentDay(),
+                        DateTimeFormatter.ofPattern("HH:mm MM/dd/yyyy")));
+        System.out.println(workerForm.getEmploymentDay());
+        System.out.println(LocalDateTime.parse(workerForm.getEmploymentDay(),
+                DateTimeFormatter.ofPattern("HH:mm MM/dd/yyyy")));
         workerService.create(newWorker);
         return "redirect:/worker/list";
     }
@@ -89,6 +98,7 @@ public class WorkerWebController {
                 specialityServices.getAll().stream()
                 .collect(Collectors.toMap(Speciality::getId,
                         Speciality::getName));
+
         model.addAttribute("mavs", mavs);
         model.addAttribute("WorkerForm", workerForm);
         return "workerupdate";
@@ -98,7 +108,9 @@ public class WorkerWebController {
             WorkerForm workerForm){
         Worker newWorker = new Worker(workerForm.getName(),
                 workerForm.getOccupation(),workerForm.getSalary(),
-                specialityServices.get(workerForm.getSpeciality()));
+                specialityServices.get(workerForm.getSpeciality()),
+                LocalDateTime.parse(workerForm.getEmploymentDay(),
+                        DateTimeFormatter.ofPattern("HH:mm MM/dd/yyyy")));
         newWorker.setId(workerForm.getId());
         workerService.update(newWorker);
         return "redirect:/worker/list";

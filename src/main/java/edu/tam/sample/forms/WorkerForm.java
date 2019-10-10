@@ -1,11 +1,14 @@
 package edu.tam.sample.forms;
 
+import java.time.LocalDate;
+
 public class WorkerForm {
     private String id;
     private String name;
     private String occupation;
     private int salary;
     private String Speciality;
+    private String employmentDay;
 
     public String getId() {
         return id;
@@ -47,6 +50,14 @@ public class WorkerForm {
         Speciality = speciality;
     }
 
+    public String getEmploymentDay() {
+        return employmentDay;
+    }
+
+    public void setEmploymentDay(String employmentDay) {
+        this.employmentDay = employmentDay;
+    }
+
     @Override
     public String toString() {
         return "WorkerForm{" +
@@ -54,6 +65,8 @@ public class WorkerForm {
                 ", name='" + name + '\'' +
                 ", occupation='" + occupation + '\'' +
                 ", salary=" + salary +
+                ", Speciality='" + Speciality + '\'' +
+                ", employmentDay='" + employmentDay + '\'' +
                 '}';
     }
 }

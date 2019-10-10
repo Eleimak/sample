@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Groups List</title>
+    <title>Worker List</title>
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
 </head>
@@ -22,6 +22,7 @@
             <th>Occupation</th>
             <th>Salary</th>
             <th>Speciality</th>
+            <th>Date</th>
             <th>Delete</th>
             <th>Update</th>
         </tr>
@@ -33,6 +34,7 @@
                 <td>${worker.occupation}</td>
                 <td>${worker.salary}</td>
                 <td>${worker.speciality.name}</td>
+                <td>${worker.employmentDay}</td>
                 <td><a href="/worker/delete/${worker.id}" type="Button" class="btn btn-danger" >Delete</a></td>
                 <td><a href="/worker/update/${worker.id}" type="Button" class="btn btn-primary" >Update</a></td>
             </tr>

@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,9 +32,9 @@ public class WorkerServiceImpl implements IWorkerService {
                 )
         );
         repository.deleteAll();
-        Worker ivan = new Worker("Ivan","Coder",1000,specialityList.get(0));
-        Worker stepan = new Worker("Stepan","Coder",2000,specialityList.get(1));
-        Worker johnLenon = new Worker("JohnLenon","guitar",20000,specialityList.get(2));
+        Worker ivan = new Worker("Ivan","Coder",1000,specialityList.get(0), LocalDateTime.now());
+        Worker stepan = new Worker("Stepan","Coder",2000,specialityList.get(1), LocalDateTime.now());
+        Worker johnLenon = new Worker("JohnLenon","guitar",20000,specialityList.get(2),LocalDateTime.now());
         workers.add(ivan);
         workers.add(stepan);
         workers.add(johnLenon);
